@@ -160,6 +160,8 @@
   }
   window.addEventListener('scroll', setActiveLink, { passive: true });
 
+  
+
   /* ── SCROLL REVEAL ──────────────────────────────── */
   // Add reveal class to elements that should animate in
   const revealTargets = [
@@ -231,14 +233,13 @@
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          animateCounter(entry.target);
+          requestAnimationFrame(() => animateCounter(entry.target));  // ← changed
           statsObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.5 }
   );
-
   statNums.forEach(function (num) {
     statsObserver.observe(num);
   });
