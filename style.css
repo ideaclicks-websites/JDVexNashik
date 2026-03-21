@@ -1447,3 +1447,79 @@ section { padding: var(--section-pad) 0; position: relative; overflow: hidden; }
     background-color: #ffffff; /* optional */
 }
 /* Floating Buttons Code ENDS  */
+
+/* ══════════════════════════════════════════════════
+   FOOTER SOCIAL ICONS
+   ══════════════════════════════════════════════════ */
+.footer-social {
+  margin-top: 20px;
+}
+
+.social-heading {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+/* Individual brand colours on hover */
+.social-icon--gmb:hover {
+  background: rgba(66, 133, 244, 0.12);
+  border-color: rgba(66, 133, 244, 0.4);
+  color: #4285F4;
+}
+.social-icon--instagram:hover {
+  background: rgba(225, 48, 108, 0.12);
+  border-color: rgba(225, 48, 108, 0.4);
+  color: #E1306C;
+}
+.social-icon--facebook:hover {
+  background: rgba(24, 119, 242, 0.12);
+  border-color: rgba(24, 119, 242, 0.4);
+  color: #1877F2;
+}
+.social-icon--linkedin:hover {
+  background: rgba(10, 102, 194, 0.12);
+  border-color: rgba(10, 102, 194, 0.4);
+  color: #0A66C2;
+}
+
+/* GMB icon uses filled paths — override color via filter on hover */
+.social-icon--gmb svg path { transition: opacity var(--transition-fast); }
+.social-icon--gmb:not(:hover) svg path { opacity: 0.45; filter: saturate(0); }
+
+/* Mobile — slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .social-icons { gap: 8px; }
+  .social-icon { width: 38px; height: 38px; }
+}
